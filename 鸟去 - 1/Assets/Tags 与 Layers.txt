@@ -1,0 +1,4 @@
+﻿Layers：
+名称			作用				出处
+No Weapon		不与锯鳐碰撞		Game4救锯鳐谜题
+No Flow			不与洋流粒子碰撞	Game4救锯鳐谜题

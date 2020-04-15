@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Jy
+  - Rock
+  - Light
+  - JOJO
+  - rattan
+  - Enemy
+  - moyu
+  - DecreaseHP
+  - Animal
+  - Tip
+  - Selections
+  - Rock2
+  - Zone
+  - Squid
+  - Whale
+  - Weapon
+  - RankItem
+  - endTip
+  - GreenStone
+  - assistStone
+  - OtherPlayer
+  - Skill(none)
+  - Skill(whale)
+  - Skill(cuttle)
+  - Skill(saw)
+  - Rank
+  - Skill(Turtle)
+  - clone
+  - barrier
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - No WhaleWater
+  - Player
+  - BigInk
+  - 3DCamera
+  - MoveWall
+  - SeaBorder
+  - FingerEffect
+  - assitCollide
+  - Weapon
+  - Tide
+  - Stone
+  - FallStone
+  - WeaponMouse
+  - Bottom
+  - Collision_B
+  - Collision_A
+  - No Weapon
+  - No Flow
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

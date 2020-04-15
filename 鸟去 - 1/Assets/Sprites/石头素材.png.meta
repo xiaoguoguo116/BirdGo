@@ -1,0 +1,345 @@
+fileFormatVersion: 2
+guid: 2085028ad7847c1408bf609755adecca
+timeCreated: 1556615187
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "\u77F3\u5934\u7D20\u6750_0"
+    21300002: "\u77F3\u5934\u7D20\u6750_1"
+    21300004: "\u77F3\u5934\u7D20\u6750_2"
+    21300006: "\u77F3\u5934\u7D20\u6750_3"
+    21300008: "\u77F3\u5934\u7D20\u6750_4"
+    21300010: "\u77F3\u5934\u7D20\u6750_5"
+    21300012: "\u77F3\u5934\u7D20\u6750_6"
+    21300014: "\u77F3\u5934\u7D20\u6750_7"
+    21300016: "\u77F3\u5934\u7D20\u6750_8"
+    21300018: "\u77F3\u5934\u7D20\u6750_9"
+    21300020: "\u77F3\u5934\u7D20\u6750_10"
+    21300022: "\u77F3\u5934\u7D20\u6750_11"
+    21300024: "\u77F3\u5934\u7D20\u6750_12"
+    21300026: "\u77F3\u5934\u7D20\u6750_13"
+    21300028: "\u77F3\u5934\u7D20\u6750_14"
+    21300030: "\u77F3\u5934\u7D20\u6750_15"
+    21300032: "\u77F3\u5934\u7D20\u6750_16"
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_0"
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 3511
+        width: 1926
+        height: 1244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_1"
+      rect:
+        serializedVersion: 2
+        x: 4049
+        y: 3850
+        width: 1481
+        height: 556
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_2"
+      rect:
+        serializedVersion: 2
+        x: 5862
+        y: 3309
+        width: 74
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_3"
+      rect:
+        serializedVersion: 2
+        x: 3495
+        y: 1751
+        width: 764
+        height: 1395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_4"
+      rect:
+        serializedVersion: 2
+        x: 5648
+        y: 2898
+        width: 398
+        height: 409
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_5"
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 1926
+        width: 1497
+        height: 717
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_6"
+      rect:
+        serializedVersion: 2
+        x: 4234
+        y: 1887
+        width: 68
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_7"
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 268
+        width: 2083
+        height: 1504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_8"
+      rect:
+        serializedVersion: 2
+        x: 5001
+        y: 729
+        width: 958
+        height: 1029
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_9"
+      rect:
+        serializedVersion: 2
+        x: 5966
+        y: 733
+        width: 745
+        height: 902
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_10"
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 3497
+        width: 1885
+        height: 1279
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5137881}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_11"
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 265
+        width: 2115
+        height: 1509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_12"
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1902
+        width: 1526
+        height: 751
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_13"
+      rect:
+        serializedVersion: 2
+        x: 3446
+        y: 1689
+        width: 921
+        height: 1552
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_14"
+      rect:
+        serializedVersion: 2
+        x: 3889
+        y: 3770
+        width: 1697
+        height: 742
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_15"
+      rect:
+        serializedVersion: 2
+        x: 5518
+        y: 2874
+        width: 571
+        height: 504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\u77F3\u5934\u7D20\u6750_16"
+      rect:
+        serializedVersion: 2
+        x: 4895
+        y: 614
+        width: 2047
+        height: 1339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/\uFF01\u56E2\u961FLOGO/\u56E2\u961FLOGO.unity"
+    guid: a7bafaf32b9b87c498b7582c0175835e
+  - enabled: 1
+    path: Assets/00.Scenes/Start.unity
+    guid: 78aba32ed91f1b74e9fdb88abae6835f
+  - enabled: 1
+    path: Assets/00.Scenes/Select.unity
+    guid: 5520f86d1f784c645b2aa3fc452a27e1
+  - enabled: 1
+    path: Assets/00.Scenes/Game1.unity
+    guid: adc563d0db8460543af91acb083b15b7
+  - enabled: 1
+    path: Assets/00.Scenes/Game2.unity
+    guid: 9988a476058dfbe48a2daf1089f3e18c
+  - enabled: 1
+    path: Assets/00.Scenes/Game3.unity
+    guid: b1c648f3047c47d46b4666bec841dbc6
+  - enabled: 1
+    path: Assets/00.Scenes/Game5.unity
+    guid: 296c11f35772d9144ba66496763c3b60
+  - enabled: 1
+    path: Assets/00.Scenes/Comic.unity
+    guid: 5fcb6ee76612d274bb0fbe3c8baeb898
+  - enabled: 1
+    path: Assets/00.Scenes/UNet.unity
+    guid: 6a84f5d0116f8ff4091ca255b327e7aa
+  - enabled: 1
+    path: Assets/00.Scenes/Game Network.unity
+    guid: 92d504810ad7519459d8c151e8aeaba8

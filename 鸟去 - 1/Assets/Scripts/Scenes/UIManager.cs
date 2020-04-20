@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
     }
     public void ClickToPause()
     {
-        //GameObject.Find("PSTool").transform.position = new Vector3(0, 0, -2.1272f);
+        
         Slider.transform.position = new Vector3(Slider.transform.position.x, Slider.transform.position.y, 0);
         Pause = true; 
         pauseButton.SetActive(false);
@@ -105,20 +105,18 @@ public class UIManager : MonoBehaviour
         //pausePanel.transform.Find("MovingPanel").transform.DOBlendableMoveBy(new Vector2(0, -230) , /*0.5f*/0).SetEase(Ease.OutCubic).SetUpdate(true);
         //pausePanel.transform.Find("MovingPanel/getKnow").gameObject.SetActive(getKnow.activeSelf);
 
-        if (Global.InputNetwork)    // 如果是联机场景
+        /*if (Global.InputNetwork)    // 如果是联机场景
             Global.InputNetwork.SetActive(false);
         else
         {
             //Global.Input.SetActive(false);
             Time.timeScale = 0;
-        }
+        }*/
     }
     public void ClickToBack()
     {
-        GameObject.Find("PSTool").transform.position = new Vector3(0, 0, 10f);
-        //if (BackTimeKey)
-        //   return;
-        //Debug.Log("bacl");
+        GameObject.Find("PSTool").transform.position = new Vector3(-64, 64, 0);
+       
         if (GlobalNN.GameManagerNN.GetComponent<GameManagerNN>().ContrlTimes > 0)
         {
             GlobalNN.GameManagerNN.GetComponent<GameManagerNN>().ContrlTimes = 0;

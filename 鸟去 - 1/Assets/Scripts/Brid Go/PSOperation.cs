@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class PSOperation : MonoBehaviour {
 
-    [HideInInspector]
-    public  bool CanPS;   //此时是否可以PS
+    public bool CanPS;   //此时是否可以PS
     private GameObject Ratation;
     private GameObject Movement;
-    [HideInInspector]
-    public bool Rotate;
-    [HideInInspector]
-    public bool Move;
+    private bool Rotate;
+    private bool Move;
     //public GameObject RatateObject;//需要被PS的物体
-    Vector2 LastPosition;
+    public Vector2 LastPosition;
     Vector2 ThisPosition;
+    public Vector2 KeepPosition;//用来预留lastposition，方便碰撞切位
     Vector2 LastVec;
     Vector2 ThisVec;
     Vector2 CenterPosition;
@@ -25,9 +23,10 @@ public class PSOperation : MonoBehaviour {
     GameObject PSid;
     int NeedBack;
     public bool PS;
-
+    
     void Awake()
     {
+        //NeedBack = GetComponent<Ghosting>().stayUp;
         //canRa = RatateObject.GetComponent<FingerTest2>().CanPS; //这个是在判断是否暂停了视频，如果暂停才可以旋转,在Update里还没加上
     }
     private void Start()
@@ -38,20 +37,23 @@ public class PSOperation : MonoBehaviour {
         UIPause = GameObject.Find("UI Root");
         PSid = GameObject.Find("CanRotate");
     }
-    void OnMouseDown()  
+    void OnMouseDown()
     {
-        
+
+        Debug.Log(transform.position);
+        //if (NeedBack == 1)
+        //  GetComponent<Ghosting>().backPosition();
         PSid.transform.localScale =  new Vector3(1, 1, 1);
         PSid.GetComponent<IsTouchRotate>().PSOBJ = null;
-        if (!UIPause.GetComponent<UIManager>().Pause)
+        if (!UIPause.GetComponent<UIManager>().Pause)//限制暂停后才能PS
             return;
-        GameObject.Find("PSTool").transform.position = new Vector3(0, 0, -2.1272f);
+        GlobalNN.PSTool.transform.position = new Vector3(0, 17.9f, -95.4f);
         PSid.GetComponent<IsTouchRotate>().PSOBJ = gameObject;
         //设置为游戏暂停后，CanPS设置为ture,可PS，然后当点击版面内高光可PS的物体，
         //就会将PSPane改变大小后，再移到当前物体上，
-        float size = GetComponent<Collider2D>().bounds.size.x ;
+        float size = GetComponent<Collider2D>().bounds.size.x * transform.localScale.x;
         float PSsize = PSid.GetComponent<CircleCollider2D>().bounds.size.x * PSid.transform.localScale.x;
-
+        Debug.Log(size + "   " + PSsize);
         PSid.transform.localScale = (size / PSsize) * new Vector3(PSid.transform.localScale.x, PSid.transform.localScale.y,1);
         //PSTool.GetComponent<Collider2D>().bounds.size =(size / PSsize) * new Vector3(PSTool.GetComponent<Collider2D>().bounds.size.x, PSTool.GetComponent<Collider2D>().bounds.size.y, 0));
         GlobalNN.PSTool.transform.position = transform.position;//将PS框移动到当前选中的可PS物体上
@@ -59,24 +61,25 @@ public class PSOperation : MonoBehaviour {
                                                                 ///这里需加对PSTool的贴图动态控制
 
         /////////////////////////////////////////////////////////////////////////
-        
+
+        Debug.Log(GlobalNN.PSTool.transform.position + "  "+ transform.position);//将PS框移动到当前选中的可PS物体上
+        //GlobalNN.PSTool.SetActive(true);
         CanPS = true;
+        transform.GetComponent<Collider2D>().isTrigger = true;
       //  PS = true;
-        GameObject.Find("Apple").GetComponent<test>().apple();
-        Destroy(this.GetComponent<Rigidbody2D>());
+        
     }
+
     void OnMouseUp()
     {
-        if (Rotate)
-            if (NeedBack == 1)
-                this.GetComponent<Ghosting>().backPosition();
-
+        GameObject.Find("PSTool").transform.position = new Vector3(GameObject.Find("PSTool").transform.position.x, GameObject.Find("PSTool").transform.position.y, 0);
     }
     void Update()
     {
+
         
         //Debug.Log("44");
-        if(CanPS)
+        if (CanPS)
         {
             if (PSid.GetComponent<IsTouchRotate>().PSOBJ.name != gameObject.name)
                 return;
@@ -100,7 +103,7 @@ public class PSOperation : MonoBehaviour {
             }
             if (Rotate)
             {
-                NeedBack = GetComponent<Ghosting>().stayUp;
+                //NeedBack = GetComponent<Ghosting>().stayUp;
                 LastVec = LastPosition - CenterPosition;
                 ThisVec = ThisPosition - CenterPosition;             //起点为物体中心点，终点为此时鼠标位置的向量
                 transform.Rotate(0, 0, Vector2.SignedAngle(ThisVec, LastVec));  // 返回当前坐标与目标坐标的角度 
@@ -110,22 +113,15 @@ public class PSOperation : MonoBehaviour {
             }
             if (Move)
             {
+                //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 Vector3 a = new Vector3( ThisPosition.x - LastPosition.x,ThisPosition.y - LastPosition.y,0);
                 transform.Translate(a , Space.World);
                 GlobalNN.PSTool.transform.Translate(a, Space.World);
                 LastPosition = ThisPosition;
+                KeepPosition = LastPosition;
+                //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             }
         }
 
-    }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "barrier")
-            Debug.Log("en");
-    }
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "barrier")
-            Debug.Log("en");
     }
 }

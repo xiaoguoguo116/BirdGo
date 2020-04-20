@@ -20,6 +20,7 @@ public class IsTouchMove : MonoBehaviour {
         PSMove = true;
         IsCanMove = true;
         
+        
     }
     void OnMouseUp()
     {

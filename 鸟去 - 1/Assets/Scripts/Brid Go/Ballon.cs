@@ -11,6 +11,8 @@ public class Ballon : MonoBehaviour {
     void OnMouseDown()
     {
         Debug.Log("fly");
+
+        Debug.Log("fly");
         //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,speed));
         //gameObject.GetComponent<Rigidbody2D>().velocity = transform.forward * speed;
 

@@ -19,21 +19,11 @@ public class IsTouchRotate : MonoBehaviour {
     {
         PSRotate = true;
         IsCanRotate = true;
-        
+   
     }
     void OnMouseUp()
     {
         IsCanRotate = false;
       
-    }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag =="barrier")
-        Debug.Log("hello");
-    }
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "barrier")
-            Debug.Log("hello");
     }
 }

@@ -16,6 +16,8 @@ public class Start : MonoBehaviour {
     {
         Num = 0;
         StarText.text = Num.ToString("0");  //开始获得星星数为0
+
+        //testguo
     }
     public void AddStart()    //星星数+1，并显示在UI上
     {

@@ -31,8 +31,6 @@ TagManager:
   - Skill(saw)
   - Rank
   - Skill(Turtle)
-  - clone
-  - barrier
   layers:
   - Default
   - TransparentFX

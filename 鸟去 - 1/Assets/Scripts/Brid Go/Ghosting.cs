@@ -9,29 +9,21 @@ public class Ghosting : MonoBehaviour
     GameObject gameobject;
     int num;    //计量数，防止不停生成clone
     bool isIn;
-    string HisTag, MyTag;
     public void OnMouseUp()   //用于虚影移动到其他物体内部又松了鼠标的情况
     {
         backPosition();
     }
-    private void EnterOther(Collider2D collision) //进入碰撞体调用
+    private void OnTriggerEnter2D(Collider2D collision)
 
     {
-        Debug.Log("enter");
-        if (collision.tag != "clone")
+        if (collision.tag == "barrier")
         {
-           
-           // isIn = true;   //确定进入碰撞体
+            isIn = true;   //确定进入碰撞体
             if (num == 0)  //该物体还没生成clone
             {
-                HisTag = collision.tag;
-                collision.tag = "barrier";
                 //stayUp = 1;
                 num++;
                 gameobject = Instantiate(this.gameObject, this.transform.position, this.transform.rotation); //生成clone
-                MyTag = this.tag;
-                this.tag = "clone";
-                gameobject.tag = "clone";
                 Destroy(gameobject.GetComponent<Rigidbody2D>());
                 gameobject.GetComponent<Ghosting>().num = 1;
                 this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
@@ -39,31 +31,26 @@ public class Ghosting : MonoBehaviour
             }
         }
     }
-    private void StayOther(Collider2D collision) //待在其他碰撞体中调用
+    private void OnTriggerStay2D(Collider2D collision)
     {
         stayUp = 1;  //
-        isIn = true;
-        Debug.Log("stayUp");
+        //isIn = true;
     }
-    private void ExitOther(Collider2D collision)  //离开碰撞体时调用
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("exit");
+
         if (collision.tag == "barrier")
         {
             // isIn = false;
             //if (!isIn )
             {
-                collision.tag = HisTag;
-                this.tag = MyTag;
                 this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                 Destroy(gameobject);  //销毁clone
-               
             }
 
             num--;
             stayUp = 0;
         }
-
     }
     public void backPosition()
     {

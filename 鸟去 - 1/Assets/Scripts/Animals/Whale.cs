@@ -51,10 +51,7 @@ public class Whale : TouchableBehaviour
     {
         waterForce = transform.Find("WaterForce").gameObject;
         m_ani = this.GetComponent<Animator>();
-        if (GameObject.Find("GameManager").GetComponent<SceneEventManager>().GetCurrentSceneIndex(SceneManager.GetActiveScene().name) == 3)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(0.905f, 0.764f, 0.764f, 1f);
-        }
+       
     }
 
     private void OnEnable()

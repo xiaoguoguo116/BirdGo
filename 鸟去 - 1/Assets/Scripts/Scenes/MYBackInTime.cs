@@ -20,7 +20,7 @@ public class MYBackInTime : MonoBehaviour
     const float MaxTimeInBack = 100; // 回溯最长时间（秒）
     const int Length = (int)(MaxTimeInBack / 0.2);
     //const int MaxObject = 200;   // 最多需要回溯的物体个数
-    StoneClock clock;
+
 
     class TraceableObject   // 记录可回溯物体的历史参数
     {
@@ -53,8 +53,7 @@ public class MYBackInTime : MonoBehaviour
     void Start()
     {
         BlackAndWhite = GameObject.Find("B&W").GetComponent<ChangeColorToBlackAndWhite>();
-        clock = Global.UI.transform.Find("StoneClock").gameObject.GetComponent<StoneClock>();
-
+        
         BackInTime = new LinkedList<TraceableObject>();
 
         if(backInTime != null)
@@ -143,12 +142,14 @@ public class MYBackInTime : MonoBehaviour
             }
     }
 
-    IEnumerator RecordHistory()
+    public IEnumerator RecordHistory()
     {
+        //Debug.Log("re");
         //GameObject circleProcess = GameObject.Find("UI Root/UI/StoneClock/CircleProcessBar");
-        GameObject circleProcess = Global.UI.transform.Find("StoneClock/CircleProcessBar").gameObject;
+
         while (true)
         {
+
             foreach (var tb in BackInTime) // 记录历史物理参数
             {
                 tb.pos[tail] = tb.ob.transform.position;
@@ -167,12 +168,7 @@ public class MYBackInTime : MonoBehaviour
             tail = (tail + 1) % Length;
             //total++;
 
-            if (1f - circleProcess.GetComponent<CircleProcess>().process > 0.01f)   // 转动石钟
-            {
-                circleProcess.GetComponent<CircleProcess>().process += 1f / Length;
-            }
-            else
-                circleProcess.SetActive(false);
+        
 
             yield return new WaitForSeconds(0.1f);
         }
@@ -183,20 +179,7 @@ public class MYBackInTime : MonoBehaviour
     public void OnBackInTime()
     {
 
-        // 关底大回溯
-        if (SceneManager.GetActiveScene().name == "Game3" &&
-            Global.SceneEvent.GetCurrentMyIndex() == Global.SceneEvent.GetMysteryCount() - 1)  // 关底大回溯
-        {
-            if (bBigBackInTime == false)
-            {
-                // 黑白特效
-                BlackAndWhite.Change();
-                bBigBackInTime = true;
-                BigBackInTime();
-            }
-            return;
-        }
-
+       
         if (!isBackingInTime)
         {
             isBackingInTime = true;
@@ -229,7 +212,7 @@ public class MYBackInTime : MonoBehaviour
         if (total > Length)
           total = Length;
         // 石钟倒流
-        clock.OnBackInTime(total, Length);
+       
         
         while (total-- > 0)
         {
@@ -287,32 +270,30 @@ public class MYBackInTime : MonoBehaviour
         // 关闭黑白特效
         BlackAndWhite.Change();
         //Global.Player.GetComponent<PlayerEventsNetwork>().RpcBackTime();
-        //Debug.Log("back");
+        Debug.Log("back");
         GameObject.Find("UI Root").GetComponent<UIManager>().ClickToPause();
-        StartCoroutine("RecordHistory");
+        //StartCoroutine("RecordHistory");
         isBackingInTime = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
+            
     }
 
+    public void StopGame() {
+        StopCoroutine("RecordHistory");
+    }
+
+    public void ReGame() {
+        StartCoroutine("RecordHistory");
+    }
     void BigBackInTime()
     {
-        //Global.Player.transform.DOMoveX(Global.Player.transform.position.x * 2, 5);
-        Camera.main.transform.parent = Global.Player.transform;
-        Global.Player.transform.DOMoveX(/*-60*/-80, 10);
-        StartCoroutine("reverseStoneClock");
+    
     }
 
-    IEnumerator reverseStoneClock()
-    {
-        clock.reverse = true;
-        yield return new /*WaitForSeconds*/WaitForSecondsRealtime(10f);
-        clock.reverse = false;
-        BlackAndWhite.Change();
-    }
 
 }

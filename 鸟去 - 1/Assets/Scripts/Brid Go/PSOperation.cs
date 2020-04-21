@@ -12,10 +12,11 @@ public class PSOperation : MonoBehaviour {
     //public GameObject RatateObject;//需要被PS的物体
     public Vector2 LastPosition;
     Vector2 ThisPosition;
-    public Vector2 KeepPosition;//用来预留lastposition，方便碰撞切位
+    //public Vector2 KeepPosition;//用来预留lastposition，方便碰撞切位
     Vector2 LastVec;
     Vector2 ThisVec;
     Vector2 CenterPosition;
+    public Vector3 a;
     float angel;
     private bool canRa;
     //GameObject PSTool;
@@ -40,7 +41,7 @@ public class PSOperation : MonoBehaviour {
     void OnMouseDown()
     {
 
-        Debug.Log(transform.position);
+
         //if (NeedBack == 1)
         //  GetComponent<Ghosting>().backPosition();
         PSid.transform.localScale =  new Vector3(1, 1, 1);
@@ -53,16 +54,12 @@ public class PSOperation : MonoBehaviour {
         //就会将PSPane改变大小后，再移到当前物体上，
         float size = GetComponent<Collider2D>().bounds.size.x * transform.localScale.x;
         float PSsize = PSid.GetComponent<CircleCollider2D>().bounds.size.x * PSid.transform.localScale.x;
-        Debug.Log(size + "   " + PSsize);
+
         PSid.transform.localScale = (size / PSsize) * new Vector3(PSid.transform.localScale.x, PSid.transform.localScale.y,1);
         //PSTool.GetComponent<Collider2D>().bounds.size =(size / PSsize) * new Vector3(PSTool.GetComponent<Collider2D>().bounds.size.x, PSTool.GetComponent<Collider2D>().bounds.size.y, 0));
         GlobalNN.PSTool.transform.position = transform.position;//将PS框移动到当前选中的可PS物体上
-                                                                //////////////////////////////////////////////////////////////////////
-                                                                ///这里需加对PSTool的贴图动态控制
+                                                               
 
-        /////////////////////////////////////////////////////////////////////////
-
-        Debug.Log(GlobalNN.PSTool.transform.position + "  "+ transform.position);//将PS框移动到当前选中的可PS物体上
         //GlobalNN.PSTool.SetActive(true);
         CanPS = true;
         transform.GetComponent<Collider2D>().isTrigger = true;
@@ -72,7 +69,7 @@ public class PSOperation : MonoBehaviour {
 
     void OnMouseUp()
     {
-        GameObject.Find("PSTool").transform.position = new Vector3(GameObject.Find("PSTool").transform.position.x, GameObject.Find("PSTool").transform.position.y, 0);
+        GlobalNN.PSTool.transform.position = new Vector3(GlobalNN.PSTool.transform.position.x, GlobalNN.PSTool.transform.position.y, 0);
     }
     void Update()
     {
@@ -113,13 +110,15 @@ public class PSOperation : MonoBehaviour {
             }
             if (Move)
             {
-                //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                Vector3 a = new Vector3( ThisPosition.x - LastPosition.x,ThisPosition.y - LastPosition.y,0);
+
+                a = new Vector3( ThisPosition.x - LastPosition.x,ThisPosition.y - LastPosition.y,0);
                 transform.Translate(a , Space.World);
                 GlobalNN.PSTool.transform.Translate(a, Space.World);
+                //KeepPosition = LastPosition;
                 LastPosition = ThisPosition;
-                KeepPosition = LastPosition;
-                //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                
+                
+                
             }
         }
 

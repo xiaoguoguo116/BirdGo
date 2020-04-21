@@ -35,11 +35,11 @@ public class TipsManagment : MonoBehaviour {
 
     IEnumerator showVictory()
     {
-        this.year = Global.UI.transform.Find("StoneClock").GetComponent<StoneClock>().year;
+
         GameObject victory = Global.UI.transform.Find("Victory").gameObject;
         //Debug.Log(year);
         PlayerPrefs.SetInt("position", 0);
-        Camera.main.GetComponent<CameraFollow>().enabled = false;
+        
         yield return new WaitForSeconds(6f);
         Global.Input.SetActive(false);
         victory.SetActive(true);

@@ -48,10 +48,7 @@ public class Weapon : TouchableBehaviour, ITraceable
     {
         m_ani = this.GetComponent<Animator>();
         m_ani.SetBool("stinger", true);
-        if (GameObject.Find("GameManager").GetComponent<SceneEventManager>().GetCurrentSceneIndex(SceneManager.GetActiveScene().name) == 3)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(0.905f, 0.764f, 0.764f, 1f);
-        }
+        
     }
 
 

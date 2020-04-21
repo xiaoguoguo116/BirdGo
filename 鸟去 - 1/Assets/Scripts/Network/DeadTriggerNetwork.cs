@@ -49,7 +49,7 @@ public class DeadTriggerNetwork : MonoBehaviour {
     {
         Global.Input.SetActive(false);
         yield return new WaitForSeconds(1.5f);
-        player.GetComponent<PlayerEvents>().m_life -= 10;
+
     }
 
     // 方案之一：黑屏效果

@@ -37,8 +37,7 @@ public class CameraFollowNetwork : MonoBehaviour
     //当玩家到达左边界时，即玩家的x坐标与左边界在世界坐标的x相同时
     //为了给玩家一定的操作空间，不让玩家一到左边界就当场去世
     //定义了一个缓冲值，使得真正的死亡界限为 leftborder - deadline
-    [SerializeField]
-    float deadLine = 2;
+    
     //}}
 
     //{{ 非自动卷屏机制（可左右无限移动，不会卷死）

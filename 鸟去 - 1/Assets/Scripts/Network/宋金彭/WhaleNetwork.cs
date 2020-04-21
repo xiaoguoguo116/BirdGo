@@ -21,13 +21,6 @@ public class WhaleNetwork : TouchableNetwork
     bool AutoBump = false;
     const float Duration = 1f;  // 喷力持续时间（秒）
 
-    //public void TouchEventNetwork()
-    //{
-    //    int id = GameManager.Touchables.IndexOf(gameObject);
-    //    if (id >= 0)
-    //        Global.Player.GetComponent<PlayerEventsNetwork>().CmdTouchEvent(id);
-    //}
-
     /// <summary>
     /// 本函数只在服务器端被调用
     /// </summary>
@@ -75,10 +68,7 @@ public class WhaleNetwork : TouchableNetwork
 
         waterForce = transform.Find("WaterForce").gameObject;
         m_ani = this.GetComponent<Animator>();
-        if (GameObject.Find("GameManager").GetComponent<SceneEventManager>().GetCurrentSceneIndex(SceneManager.GetActiveScene().name) == 3)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(0.905f, 0.764f, 0.764f, 1f);
-        }
+    
     }
 
     private void OnEnable()

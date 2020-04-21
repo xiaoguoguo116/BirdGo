@@ -94,19 +94,7 @@ public partial class PlayerEventsNetwork : TouchableNetwork //NetworkBehaviour, 
     {
         yield return new WaitForSeconds(1f);
 
-        //GameObject.Find("UI").GetComponent<UIManager>().deadPanel.SetActive(true);
-        //yield return new WaitForSeconds(2f);
-        SceneEventManager manager = GameObject.Find("GameManager").GetComponent<SceneEventManager>();
-        if (Global.lastDeadMy == manager.GetCurrentMyIndex() && Global.lastDeadScene == SceneManager.GetActiveScene().name)//如果上次死亡谜题和关卡和这次相同，则连续死亡次数+1，否则重置死亡信息
-        {
-            Global.deadCount++;
-        }
-        else
-        {
-            Global.deadCount = 1;
-            Global.lastDeadMy = manager.GetCurrentMyIndex();
-            Global.lastDeadScene = SceneManager.GetActiveScene().name;
-        }
+       
         GameObject deadPanel = GameObject.Find("UI").gameObject.GetComponent<UIManager>().deadPanel;
         deadPanel.SetActive(true);
 
@@ -130,33 +118,7 @@ public partial class PlayerEventsNetwork : TouchableNetwork //NetworkBehaviour, 
     //    }
     //}
 
-    CameraFollow cameraFollow;
-    float PlayerSpeed;
-    /// <summary>
-    /// 龟速从playerSpeed降为0；卷屏速度从当前还原为1
-    /// </summary>
-    public void SpeedDown(float playerSpeed)
-    {
-        if (Camera.main)    // 如果是场景退出，会为空
-        {
-            cameraFollow = Camera.main.GetComponent<CameraFollow>();
-            PlayerSpeed = playerSpeed;
-            StartCoroutine("SpeedDownSlowly");
-        }
-    }
-    IEnumerator SpeedDownSlowly()
-    {
-        while (cameraFollow.cameraMoveSpeed > 1 + 1e-4)
-        {
-            cameraFollow.cameraMoveSpeed = Mathf.Lerp(cameraFollow.cameraMoveSpeed, 1, Time.deltaTime);
-            PlayerSpeed = Mathf.Lerp(PlayerSpeed, 0, Time.deltaTime);
-            //print(cameraFollow.cameraMoveSpeed + "," + PlayerSpeed);
-
-            // 龟自动游泳速度
-            transform.position = new Vector2(transform.position.x + PlayerSpeed * Time.deltaTime, transform.position.y);
-            yield return null;
-        }
-    }
+   
 
     protected override void Effect()
     {//GameManager.test = "Effect";

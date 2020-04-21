@@ -25,10 +25,8 @@ public class ChangeColorToBlackAndWhite : MonoBehaviour
     {
         //Debug.Log("播放");
         AudioSource[] sources = GameObject.Find("GameManager").gameObject.GetComponents<AudioSource>();
-        GameObject obs = Global.UI.transform.Find("StoneClock/Clock").gameObject;
-        Image[] imgs = obs.GetComponentsInChildren<Image>();
-        foreach (Image img in imgs)
-            img.material = clockMaterial;
+
+        
         foreach (AudioSource item in sources)//开始回溯，环境音效静音
             item.volume = 0f;
         sources[sources.Length - 1].volume = 1f;    // “倒带声”必须放在检视器的最后一个声音上
@@ -38,10 +36,7 @@ public class ChangeColorToBlackAndWhite : MonoBehaviour
     {
         //Debug.Log("停止");
         AudioSource[] sources = GameObject.Find("GameManager").gameObject.GetComponents<AudioSource>();
-        GameObject obs = Global.UI.transform.Find("StoneClock").gameObject;
-        Image[] imgs = obs.GetComponentsInChildren<Image>();
-        foreach (Image img in imgs)
-            img.material = null;
+
         foreach (AudioSource item in sources)
             item.volume = 1f;
         sources[sources.Length - 1].volume = 0f;//回溯音效静音
@@ -61,8 +56,7 @@ public class ChangeColorToBlackAndWhite : MonoBehaviour
             //if (Global.SceneEvent.GetCurrentMyIndex() != Global.SceneEvent.GetMysteryCount() - 1)
             
             // 游戏时间暂停（Game3的5号（时间混乱）和最后一个谜题不用暂停）
-            if (!("Game3" == SceneManager.GetActiveScene().name && 
-                (Global.SceneEvent.GetCurrentMyIndex() == 5 || Global.SceneEvent.GetCurrentMyIndex() == Global.SceneEvent.GetMysteryCount() - 1)))
+            if (!("Game3" == SceneManager.GetActiveScene().name))
 
                 //if (Global.SceneEvent.GetCurrentMyIndex() != Global.SceneEvent.GetMysteryCount() - 1 &&
                 //Global.SceneEvent.GetCurrentMyIndex() != 5)
@@ -90,8 +84,7 @@ public class ChangeColorToBlackAndWhite : MonoBehaviour
                                 //if (Global.SceneEvent.GetCurrentMyIndex() != Global.SceneEvent.GetMysteryCount() - 1 &&     // 游戏时间暂停（5号和最后一个谜题不用暂停）
                                 //    Global.SceneEvent.GetCurrentMyIndex() != 5)
             // 游戏时间暂停（Game3的5号（时间混乱）和最后一个谜题不用暂停）
-            if (!("Game3" == SceneManager.GetActiveScene().name &&
-                (Global.SceneEvent.GetCurrentMyIndex() == 5 || Global.SceneEvent.GetCurrentMyIndex() == Global.SceneEvent.GetMysteryCount() - 1)))
+            if (!("Game3" == SceneManager.GetActiveScene().name))
                 Time.timeScale = 0;
 #if true    
             this.nowRender = this.root.GetComponentsInChildren<SpriteRenderer>();   // 使能掉的对象不会被遍历到

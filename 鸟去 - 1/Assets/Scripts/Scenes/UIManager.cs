@@ -31,7 +31,6 @@ public class UIManager : MonoBehaviour
     public GameObject rankContent;//排行榜容器
     public GameObject rankOneItem;//单个排行榜预制体
     public Text CurrentText;//当前玩家名字输入框
-    public StoneClock stoneClock;//石头钟
     public Sprite[] headImages;//头像
 
     public int rankLength;//排行榜个数
@@ -64,7 +63,7 @@ public class UIManager : MonoBehaviour
 
         pausePanel = transform.Find("PausePanel").gameObject;   
         knowledge = transform.Find("Knowledge").gameObject;
-        deadPanel = transform.Find("deadPanel").gameObject;
+
         victoryPanel = transform.Find("Victory").gameObject;
 
         Fade = transform.Find("Fade").gameObject;
@@ -72,7 +71,7 @@ public class UIManager : MonoBehaviour
         pausePanel.SetActive(false);
 //        knowledge.SetActive(false);
         getKnow.SetActive(false);
-        deadPanel.SetActive(false);
+
         victoryPanel.SetActive(false);
         Fade.SetActive(true);
         pauseButton.SetActive(true);
@@ -96,7 +95,11 @@ public class UIManager : MonoBehaviour
     }
     public void ClickToPause()
     {
+
+        GameObject.Find("GameManagerNN").GetComponent<GameManagerNN>().IsStop = true;
+        GameObject.Find("MYBackTime").GetComponent<MYBackInTime>().StopGame();
         
+        GameObject.Find("MYBackTime").GetComponent<StopGame>().IsStopGame();
         Slider.transform.position = new Vector3(Slider.transform.position.x, Slider.transform.position.y, 0);
         Pause = true; 
         pauseButton.SetActive(false);
@@ -115,8 +118,14 @@ public class UIManager : MonoBehaviour
     }
     public void ClickToBack()
     {
+        GameObject.Find("MYBackTime").GetComponent<MYBackInTime>().ReGame();
+        StartCoroutine(GameObject.Find("MYBackTime").GetComponent<StopGame>().BackToGame());
+        GameObject.Find("GameManagerNN").GetComponent<GameManagerNN>().IsStop = false;
+        Debug.Log(GameObject.Find("GameManagerNN").GetComponent<GameManagerNN>().IsStop);
+        GameObject.Find("GameManagerNN").GetComponent<GameManagerNN>().AddTime();
+        Debug.Log("ack");
         GameObject.Find("PSTool").transform.position = new Vector3(-64, 64, 0);
-       
+        
         if (GlobalNN.GameManagerNN.GetComponent<GameManagerNN>().ContrlTimes > 0)
         {
             GlobalNN.GameManagerNN.GetComponent<GameManagerNN>().ContrlTimes = 0;
@@ -225,7 +234,7 @@ public class UIManager : MonoBehaviour
         //    SceneManager.LoadScene("start");
         //}
 
-        Global.LevelIndex = Global.SceneEvent.GetCurrentSceneIndex(SceneManager.GetActiveScene().name);
+        
         Global.LevelVideoIndex = 1;
         SceneManager.LoadScene("Comic");
     }
@@ -296,13 +305,8 @@ public class UIManager : MonoBehaviour
     public void showData()//button(下一步)调用
     {
         RankData currentData;
-        currentData.playerName = CurrentText.text;
-        if (endTip == null)
-            currentData.playerTime = this.stoneClock.GetComponent<StoneClock>().year;
-        else
-            currentData.playerTime = this.endTip.GetComponent<TipsManagment>().year;
-        rankData.Add(currentData);
-        rankData.Sort((first, second) => { return first.playerTime.CompareTo(second.playerTime); });
+        
+        
 
         for (int i = 0; i < rankData.Count && i < this.rankLength; ++i)
         {
@@ -319,10 +323,5 @@ public class UIManager : MonoBehaviour
             tempItem.GetComponentsInChildren<Image>()[1].sprite = headImages[i];
         }
         saveData();
-    }
-
-    public void OnClickStoneClock()
-    {
-        TapEventHandler.instance.EventHandle(Global.Player);
     }
 }

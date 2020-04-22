@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class CanGhosting : MonoBehaviour {
     [HideInInspector]
-    public bool canMove;
+    public bool canPs;
     private bool canRatate;
     [HideInInspector]
     public bool IsTrigger;
    
     void Update()
     {
-        canMove = this.GetComponent<PSOperation>().Move;
-        canRatate = this.GetComponent<PSOperation>().Rotate;
-        if (canMove||canRatate)
+        canPs = this.GetComponent<PSOperation>().CanPS;
+        if (canPs)
+        {
             this.GetComponent<PolygonCollider2D>().isTrigger = true;
+            //this.
+        }
         else
             this.GetComponent<PolygonCollider2D>().isTrigger = false;
     }

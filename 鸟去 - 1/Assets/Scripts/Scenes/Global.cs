@@ -17,7 +17,7 @@ public static class Global {
     static public GameObject InputNetwork;
     static public GameObject Player;
     static public GameObject PlayerHidden;  // 指向联机时被隐藏起来的原单机Player
-    //static public SceneEventManager SceneEvent;
+    static public SceneEventManager SceneEvent;
 
     //static public string[] SceneName = new string[] { "Game1", "Game2", "Game3", "Game5"};   //关卡场景名
     static public List<string> SceneName = new List<string> { "Game1", "Game2", "Game3", "Game5" };   //关卡场景名

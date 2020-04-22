@@ -7,8 +7,8 @@ public class PSOperation : MonoBehaviour {
     public bool CanPS;   //此时是否可以PS
     private GameObject Ratation;
     private GameObject Movement;
-    private bool Rotate;
-    private bool Move;
+    public bool Rotate;
+    public bool Move;
     //public GameObject RatateObject;//需要被PS的物体
     public Vector2 LastPosition;
     Vector2 ThisPosition;
@@ -78,8 +78,8 @@ public class PSOperation : MonoBehaviour {
         //Debug.Log("44");
         if (CanPS)
         {
-            if (PSid.GetComponent<IsTouchRotate>().PSOBJ.name != gameObject.name)
-                return;
+            //if (PSid.GetComponent<IsTouchRotate>().PSOBJ.name != gameObject.name)
+              //  return;
             Rotate = Ratation.GetComponent<IsTouchRotate>().IsCanRotate;
             Move = Movement.GetComponent<IsTouchMove>().IsCanMove;
             if (Rotate || Move) {

@@ -78,6 +78,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640548bbe054f6a4a9cd3e438fe8eaaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanPS: 0
+  Rotate: 0
+  Move: 0
+  LastPosition: {x: 0, y: 0}
+  a: {x: 0, y: 0, z: 0}
+  PS: 0
 --- !u!212 &212294314151636840
 SpriteRenderer:
   m_ObjectHideFlags: 1

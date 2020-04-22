@@ -18,6 +18,7 @@ public class Ghosting : MonoBehaviour
     {
         if (collision.tag == "barrier")
         {
+            Debug.Log("enter");
             isIn = true;   //确定进入碰撞体
             if (num == 0)  //该物体还没生成clone
             {
@@ -38,9 +39,10 @@ public class Ghosting : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-
+       
         if (collision.tag == "barrier")
         {
+            Debug.Log("yes");
             // isIn = false;
             //if (!isIn )
             {

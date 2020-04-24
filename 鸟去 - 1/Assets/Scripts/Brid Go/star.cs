@@ -8,13 +8,15 @@ public class star : MonoBehaviour {
     void Start()
     {
         UIPause = GameObject.Find("UI Root");
-
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (UIPause.GetComponent<UIManager>().Pause)  //游戏在暂停状态时，星星碰撞后无效果
-             return;
+            return;
         else
+        {
             Destroy(this.gameObject);
+            GameObject.Find("starNumber").GetComponent<StarNumberPanel>().AddStart();
+        }
     }
 }

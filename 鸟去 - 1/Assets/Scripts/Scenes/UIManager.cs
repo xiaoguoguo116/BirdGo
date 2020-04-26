@@ -49,13 +49,12 @@ public class UIManager : MonoBehaviour
         Slider = GameObject.Find("Slider");
         //pausePanel = GameObject.Find("PausePanel");
         //pauseButton = GameObject.Find("PauseButton");
-        //knowledge = GameObject.Find("Knowledge");
-        //getKnow = GameObject.Find("getKnow");
+       // knowledge = GameObject.Find("Knowledge");
+       // getKnow = GameObject.Find("getKnow");
         //deadPanel = GameObject.Find("deadPanel");
         //victoryPanel = GameObject.Find("Victory");
         //restartButton = GameObject.Find("Restart");
         //Fade = GameObject.Find("Fade");
-
         // transform.Find 可以找到隐藏的对象
         pauseButton = transform.Find("PauseButton").gameObject;
         getKnow = transform.Find("PauseButton/getKnow").gameObject;
@@ -70,7 +69,7 @@ public class UIManager : MonoBehaviour
 
         pausePanel.SetActive(false);
 //        knowledge.SetActive(false);
-        getKnow.SetActive(false);
+       // getKnow.SetActive(false);
 
         victoryPanel.SetActive(false);
         Fade.SetActive(true);
@@ -242,7 +241,8 @@ public class UIManager : MonoBehaviour
     public void ClickToKnow()
     {
         knowledge.SetActive(true);
-        getKnow.SetActive(false);
+       // getKnow.SetActive(false);
+
 
         if (Global.InputNetwork)    // 如果是联机场景
             Global.InputNetwork.SetActive(false);
@@ -250,6 +250,7 @@ public class UIManager : MonoBehaviour
         {
             Global.Input.SetActive(false);
             Time.timeScale = 0;
+
         }
     }
 
